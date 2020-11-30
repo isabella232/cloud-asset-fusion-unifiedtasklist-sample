@@ -13,7 +13,7 @@ This extension web application helps users see a consolidated view of their task
 * This code requires Oracle Visual Builder Cloud Service (VBCS) 19.4.3 or later. 
 * Access to one or more SaaS or PaaS products that expose their list of Tasks via  REST services.
 * All REST services must support OAuth authorization.
-* The VBCS Web application provided in the code requires that the various VBCS , SaaS and any PaaS application have their identiies federated. *
+* The VBCS Web application provided in the code requires that the various VBCS , SaaS and any PaaS application have their identities federated. *
  
 ## **High Level Architecture**
 ![](https://orahub.oraclecorp.com/ateam/cloud.asset.fusion-unifiedtasklist/raw/master/highlevel.png)
