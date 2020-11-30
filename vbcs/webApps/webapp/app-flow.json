@@ -1,0 +1,259 @@
+{
+    "defaultPage": "shell",
+    "types": {
+        "typTasks": {
+            "taskID": "number",
+            "taskTitle": "string",
+            "tasStatus": "string",
+            "taskAssignedDate": "string",
+            "taskSourceSystem": "string",
+            "taskAssigner": "string"
+        },
+        "@decorators.saasTaskDetails": {
+            "endpoint": "getTasksTaskNumber",
+            "service": "saaSBPMAPI",
+            "path": "response"
+        },
+        "saasTaskDetails": {
+            "actionList": [
+                {
+                    "actionId": "string",
+                    "actionType": "string",
+                    "length": "number",
+                    "title": "string"
+                }
+            ],
+            "applicationContext": "string",
+            "approvalDuration": "number",
+            "assignedDate": "string",
+            "assignees": "any",
+            "attachments": "any",
+            "category": "string",
+            "comments": "any",
+            "createdBy": "string",
+            "createdDate": "string",
+            "fromUserDisplayName": "string",
+            "fromUserName": "string",
+            "hasSubTasksFlag": "boolean",
+            "history": "any",
+            "identificationKey": "string",
+            "length": "number",
+            "number": "number",
+            "payload": "any",
+            "priority": "number",
+            "state": "string",
+            "taskDefinitionName": "string",
+            "taskId": "string",
+            "taskNamespace": "string",
+            "title": "string",
+            "titlePrefix": "string",
+            "updatedDate": "string"
+        },
+        "@decorators.paasTaskDetails": {
+            "endpoint": "getTasksTaskNumber",
+            "service": "oICProcessBPMTasks",
+            "path": "response"
+        },
+        "paasTaskDetails": {
+            "actionList": [
+                {
+                    "actionId": "string",
+                    "actionType": "string",
+                    "length": "number",
+                    "title": "string"
+                }
+            ],
+            "assignedDate": "string",
+            "assignees": "any",
+            "comments": {
+                "comments": "any"
+            },
+            "createdBy": "string",
+            "createdDate": "string",
+            "dcsFolders": "any",
+            "formMetadata": "string",
+            "fromUserDisplayName": "string",
+            "fromUserName": "string",
+            "hasSubTasksFlag": "boolean",
+            "history": {
+                "history": "any"
+            },
+            "isConversationEnabledFlag": "boolean",
+            "isDocsEnabledFlag": "boolean",
+            "length": "number",
+            "number": "number",
+            "originalAssignees": {
+                "count": "number",
+                "hasMore": "boolean",
+                "items": "any[]",
+                "totalResult": "boolean"
+            },
+            "ownerRole": "string",
+            "payload": {
+                "payload": "any"
+            },
+            "priority": "number",
+            "processDefId": "string",
+            "processId": "string",
+            "processInstanceDetail": "any",
+            "processName": "string",
+            "reviewers": "any",
+            "rolesPlayedByUser": "string[]",
+            "routingType": "string",
+            "shortSummary": "string",
+            "state": "string",
+            "status": "string",
+            "title": "string",
+            "updatedDate": "string"
+        },
+        "@decorators.paasTasksList": {
+            "endpoint": "getTasks",
+            "service": "oICProcessBPMTasks",
+            "path": "response"
+        },
+        "paasTasksList": {
+            "count": "number",
+            "hasMore": "boolean",
+            "items": [
+                {
+                    "assignedDate": "string",
+                    "assignees": {
+                        "hasMore": "boolean",
+                        "items": [
+                            {
+                                "id": "string",
+                                "levels": "number",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "createdBy": "string",
+                    "createdDate": "string",
+                    "fromUserDisplayName": "string",
+                    "fromUserName": "string",
+                    "hasSubTasksFlag": "boolean",
+                    "href": "string",
+                    "length": "number",
+                    "number": "number",
+                    "ownerRole": "string",
+                    "priority": "number",
+                    "processDefId": "string",
+                    "processId": "string",
+                    "processInstanceDetail": {
+                        "href": "string",
+                        "length": "number",
+                        "rel": "string"
+                    },
+                    "processName": "string",
+                    "rel": "string",
+                    "shortSummary": "string",
+                    "state": "string",
+                    "status": "string",
+                    "title": "string",
+                    "updatedDate": "string"
+                }
+            ],
+            "links": [
+                {
+                    "href": "string",
+                    "length": "number",
+                    "rel": "string"
+                }
+            ],
+            "totalResults": "number"
+        },
+        "@decorators.saasTasksList": {
+            "endpoint": "getTasks",
+            "service": "saaSBPMAPI",
+            "path": "response"
+        },
+        "saasTasksList": {
+            "count": "number",
+            "hasMore": "boolean",
+            "items": [
+                {
+                    "approvalDuration": "number",
+                    "assignedDate": "string",
+                    "assignees": {
+                        "hasMore": "boolean",
+                        "items": [
+                            {
+                                "id": "string",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "category": "string",
+                    "createdBy": "string",
+                    "createdDate": "string",
+                    "fromUserDisplayName": "string",
+                    "fromUserName": "string",
+                    "hasSubTasksFlag": "boolean",
+                    "href": "string",
+                    "identificationKey": "string",
+                    "length": "number",
+                    "number": "number",
+                    "ownerUser": "string",
+                    "priority": "number",
+                    "rel": "string",
+                    "state": "string",
+                    "taskDefinitionName": "string",
+                    "taskId": "string",
+                    "taskNamespace": "string",
+                    "title": "string",
+                    "titlePrefix": "string",
+                    "updatedDate": "string"
+                }
+            ],
+            "links": [
+                {
+                    "href": "string",
+                    "length": "number",
+                    "rel": "string"
+                }
+            ],
+            "totalResults": "number"
+        }
+    },
+    "variables": {},
+    "security": {
+        "access": {
+            "requiresAuthentication": true
+        }
+    },
+    "applicationModelVersion": "18.4.1",
+    "chains": {},
+    "translations": {
+        "app": {
+            "path": "./resources/strings/app/nls/app-strings"
+        }
+    },
+    "description": "A new VB app",
+    "id": "starter",
+    "services": {
+        "bpmApi4_0": {
+            "path": "./services/bpmApi4_0/openapi3.json"
+        },
+        "saaSBPMAPI": {
+            "path": "./services/saaSBPMAPI/openapi3.json"
+        },
+        "oICProcessBPMTasks": {
+            "path": "./services/oICProcessBPMTasks/openapi3.json"
+        }
+    },
+    "userConfig": {
+        "type": "vb/DefaultSecurityProvider",
+        "configuration": {
+            "authentication": {
+                "type": "oraclecloud"
+            }
+        },
+        "embedding": "any"
+    },
+    "constants": {
+        "PageTitle": {
+            "type": "string",
+            "defaultValue": "Unified Business Process Task List"
+        }
+    }
+}

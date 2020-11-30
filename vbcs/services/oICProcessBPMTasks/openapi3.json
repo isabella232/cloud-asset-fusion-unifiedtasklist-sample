@@ -1,0 +1,374 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "OICProcessBPMTasks",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://OICProcessHostname/ic/api/process/v1",
+            "x-vb": {
+                "authentication": {
+                    "authenticated": {
+                        "type": "cloud"
+                    }
+                },
+                "forceProxy": "cors"
+            }
+        }
+    ],
+    "paths": {
+        "/tasks": {
+            "get": {
+                "operationId": "getTasks",
+                "responses": {
+                    "default": {
+                        "description": "The content returned by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Gettask"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "externalValue": "./examples/getTasks/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/tasks/{taskNumber}": {
+            "get": {
+                "operationId": "getTasksTaskNumber",
+                "parameters": [
+                    {
+                        "name": "taskNumber",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "The content returned by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Gettaskstasknumber"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "externalValue": "./examples/getTasksTaskNumber/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Gettask": {
+                "type": "object",
+                "properties": {
+                    "totalResults": {
+                        "type": "number"
+                    },
+                    "count": {
+                        "type": "number"
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Item"
+                        }
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Link"
+                        }
+                    }
+                }
+            },
+            "Item": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "number": {
+                        "type": "number"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "fromUserDisplayName": {
+                        "type": "string"
+                    },
+                    "fromUserName": {
+                        "type": "string"
+                    },
+                    "priority": {
+                        "type": "number"
+                    },
+                    "shortSummary": {
+                        "type": "string"
+                    },
+                    "ownerRole": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "assignedDate": {
+                        "type": "string"
+                    },
+                    "createdDate": {
+                        "type": "string"
+                    },
+                    "updatedDate": {
+                        "type": "string"
+                    },
+                    "hasSubTasksFlag": {
+                        "type": "boolean"
+                    },
+                    "processName": {
+                        "type": "string"
+                    },
+                    "processId": {
+                        "type": "string"
+                    },
+                    "processDefId": {
+                        "type": "string"
+                    },
+                    "processInstanceDetail": {
+                        "$ref": "#/components/schemas/Processinstancedetail"
+                    },
+                    "assignees": {
+                        "$ref": "#/components/schemas/Assignee"
+                    },
+                    "length": {
+                        "type": "number"
+                    },
+                    "rel": {
+                        "type": "string"
+                    },
+                    "href": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Processinstancedetail": {
+                "type": "object",
+                "properties": {
+                    "length": {
+                        "type": "number"
+                    },
+                    "rel": {
+                        "type": "string"
+                    },
+                    "href": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Assignee": {
+                "type": "object",
+                "properties": {
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Item1"
+                        }
+                    }
+                }
+            },
+            "Item1": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string"
+                    },
+                    "levels": {
+                        "type": "number"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Link": {
+                "type": "object",
+                "properties": {
+                    "length": {
+                        "type": "number"
+                    },
+                    "rel": {
+                        "type": "string"
+                    },
+                    "href": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Gettaskstasknumber": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "number": {
+                        "type": "number"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "fromUserDisplayName": {
+                        "type": "string"
+                    },
+                    "fromUserName": {
+                        "type": "string"
+                    },
+                    "priority": {
+                        "type": "number"
+                    },
+                    "shortSummary": {
+                        "type": "string"
+                    },
+                    "ownerRole": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "assignedDate": {
+                        "type": "string"
+                    },
+                    "createdDate": {
+                        "type": "string"
+                    },
+                    "updatedDate": {
+                        "type": "string"
+                    },
+                    "hasSubTasksFlag": {
+                        "type": "boolean"
+                    },
+                    "routingType": {
+                        "type": "string"
+                    },
+                    "processName": {
+                        "type": "string"
+                    },
+                    "processId": {
+                        "type": "string"
+                    },
+                    "processDefId": {
+                        "type": "string"
+                    },
+                    "isDocsEnabledFlag": {
+                        "type": "boolean"
+                    },
+                    "isConversationEnabledFlag": {
+                        "type": "boolean"
+                    },
+                    "formMetadata": {
+                        "type": "string"
+                    },
+                    "rolesPlayedByUser": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "originalAssignees": {
+                        "$ref": "#/components/schemas/Originalassignee"
+                    },
+                    "payload": {
+                        "$ref": "#/components/schemas/Payload"
+                    },
+                    "history": {
+                        "$ref": "#/components/schemas/History"
+                    },
+                    "comments": {
+                        "$ref": "#/components/schemas/Comment"
+                    },
+                    "actionList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Actionlist"
+                        }
+                    },
+                    "length": {
+                        "type": "number"
+                    }
+                }
+            },
+            "Originalassignee": {
+                "type": "object",
+                "properties": {
+                    "count": {
+                        "type": "number"
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "totalResult": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "Payload": {
+                "type": "object"
+            },
+            "History": {
+                "type": "object"
+            },
+            "Comment": {
+                "type": "object"
+            },
+            "Actionlist": {
+                "type": "object",
+                "properties": {
+                    "length": {
+                        "type": "number"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "actionId": {
+                        "type": "string"
+                    },
+                    "actionType": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

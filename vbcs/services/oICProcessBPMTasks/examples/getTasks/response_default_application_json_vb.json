@@ -1,0 +1,246 @@
+{
+    "totalResults": 6,
+    "count": 6,
+    "hasMore": false,
+    "items": [
+        {
+            "title": "Submit Appraisal Documents",
+            "number": 200541,
+            "createdBy": "Jon Doe",
+            "fromUserDisplayName": "Jon Doe",
+            "fromUserName": "jon.doe@oracle.com",
+            "priority": 3,
+            "shortSummary": "Submit Appraisal Documents",
+            "ownerRole": "LoanApproval2.Process Owner",
+            "status": "ASSIGNED",
+            "state": "ASSIGNED",
+            "assignedDate": "2019-12-27T16:55:59.000Z",
+            "createdDate": "2019-12-27T16:55:58.000Z",
+            "updatedDate": "2019-12-27T16:55:58.000Z",
+            "hasSubTasksFlag": false,
+            "processName": "LoanApplicationProcessing",
+            "processId": "160001",
+            "processDefId": "oracleinternalpcs~LoanApproval2!2~LoanApplicationProcessing",
+            "processInstanceDetail": {
+                "length": 0,
+                "rel": "processInstanceDetail",
+                "href": "https://xxxxx.yyyyy.ocp.oraclecloud.com:443/ic/api/process/v1/processes/160001"
+            },
+            "assignees": {
+                "hasMore": false,
+                "items": [
+                    {
+                        "type": "role",
+                        "levels": 0,
+                        "id": "LoanApproval2.PropertyAppraiser"
+                    }
+                ]
+            },
+            "length": 0,
+            "rel": "self",
+            "href": "https://xxxxx-yyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/tasks/200541"
+        },
+        {
+            "title": "Submit Applicant Documents",
+            "number": 200542,
+            "createdBy": "Jon Doe",
+            "fromUserDisplayName": "Jon Doe",
+            "fromUserName": "jon.doe@somewhere.com",
+            "priority": 3,
+            "shortSummary": "Submit Applicant Documents",
+            "ownerRole": "LoanApproval2.Process Owner",
+            "status": "ASSIGNED",
+            "state": "ASSIGNED",
+            "assignedDate": "2019-12-27T16:56:00.000Z",
+            "createdDate": "2019-12-27T16:56:00.000Z",
+            "updatedDate": "2019-12-27T16:56:00.000Z",
+            "hasSubTasksFlag": false,
+            "processName": "LoanApplicationProcessing",
+            "processId": "160001",
+            "processDefId": "oracleinternalpcs~LoanApproval2!2~LoanApplicationProcessing",
+            "processInstanceDetail": {
+                "length": 0,
+                "rel": "processInstanceDetail",
+                "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/processes/160001"
+            },
+            "assignees": {
+                "hasMore": false,
+                "items": [
+                    {
+                        "type": "role",
+                        "levels": 0,
+                        "id": "LoanApproval2.LoanApplicant_1_2"
+                    }
+                ]
+            },
+            "length": 0,
+            "rel": "self",
+            "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/tasks/200542"
+        },
+        {
+            "title": "Submit Appraisal Documents",
+            "number": 200546,
+            "createdBy": "Jon Doe",
+            "fromUserDisplayName": "Jon Doe",
+            "fromUserName": "jon.doe@somewhere.com",
+            "priority": 3,
+            "shortSummary": "Submit Appraisal Documents",
+            "ownerRole": "LoanApproval2.Process Owner",
+            "status": "ASSIGNED",
+            "state": "ASSIGNED",
+            "assignedDate": "2019-12-27T16:57:46.000Z",
+            "createdDate": "2019-12-27T16:57:46.000Z",
+            "updatedDate": "2019-12-27T16:57:46.000Z",
+            "hasSubTasksFlag": false,
+            "processName": "LoanApplicationProcessing",
+            "processId": "160004",
+            "processDefId": "oracleinternalpcs~LoanApproval2!2~LoanApplicationProcessing",
+            "processInstanceDetail": {
+                "length": 0,
+                "rel": "processInstanceDetail",
+                "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/processes/160004"
+            },
+            "assignees": {
+                "hasMore": false,
+                "items": [
+                    {
+                        "type": "role",
+                        "levels": 0,
+                        "id": "LoanApproval2.PropertyAppraiser"
+                    }
+                ]
+            },
+            "length": 0,
+            "rel": "self",
+            "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/tasks/200546"
+        },
+        {
+            "title": "Submit Applicant Documents",
+            "number": 200547,
+            "createdBy": "Jon Doe",
+            "fromUserDisplayName": "Jon Doe",
+            "fromUserName": "jon.doe@somewhere.com",
+            "priority": 3,
+            "shortSummary": "Submit Applicant Documents",
+            "ownerRole": "LoanApproval2.Process Owner",
+            "status": "ASSIGNED",
+            "state": "ASSIGNED",
+            "assignedDate": "2019-12-27T16:57:46.000Z",
+            "createdDate": "2019-12-27T16:57:46.000Z",
+            "updatedDate": "2019-12-27T16:57:46.000Z",
+            "hasSubTasksFlag": false,
+            "processName": "LoanApplicationProcessing",
+            "processId": "160004",
+            "processDefId": "oracleinternalpcs~LoanApproval2!2~LoanApplicationProcessing",
+            "processInstanceDetail": {
+                "length": 0,
+                "rel": "processInstanceDetail",
+                "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/processes/160004"
+            },
+            "assignees": {
+                "hasMore": false,
+                "items": [
+                    {
+                        "type": "role",
+                        "levels": 0,
+                        "id": "LoanApproval2.LoanApplicant_1_2"
+                    }
+                ]
+            },
+            "length": 0,
+            "rel": "self",
+            "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/tasks/200547"
+        },
+        {
+            "title": "Submit Appraisal Documents",
+            "number": 200551,
+            "createdBy": "Jon Doe",
+            "fromUserDisplayName": "Jon Doe",
+            "fromUserName": "jon.doe@somewhere.com",
+            "priority": 3,
+            "shortSummary": "Submit Appraisal Documents",
+            "ownerRole": "LoanApproval2.Process Owner",
+            "status": "ASSIGNED",
+            "state": "ASSIGNED",
+            "assignedDate": "2019-12-27T16:58:15.000Z",
+            "createdDate": "2019-12-27T16:58:14.000Z",
+            "updatedDate": "2019-12-27T16:58:14.000Z",
+            "hasSubTasksFlag": false,
+            "processName": "LoanApplicationProcessing",
+            "processId": "170001",
+            "processDefId": "oracleinternalpcs~LoanApproval2!2~LoanApplicationProcessing",
+            "processInstanceDetail": {
+                "length": 0,
+                "rel": "processInstanceDetail",
+                "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/processes/170001"
+            },
+            "assignees": {
+                "hasMore": false,
+                "items": [
+                    {
+                        "type": "role",
+                        "levels": 0,
+                        "id": "LoanApproval2.PropertyAppraiser"
+                    }
+                ]
+            },
+            "length": 0,
+            "rel": "self",
+            "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/tasks/200551"
+        },
+        {
+            "title": "Submit Applicant Documents",
+            "number": 200552,
+            "createdBy": "Jon Doe",
+            "fromUserDisplayName": "Jon Doe",
+            "fromUserName": "jon.doe@somewhere.com",
+            "priority": 3,
+            "shortSummary": "Submit Applicant Documents",
+            "ownerRole": "LoanApproval2.Process Owner",
+            "status": "ASSIGNED",
+            "state": "ASSIGNED",
+            "assignedDate": "2019-12-27T16:58:15.000Z",
+            "createdDate": "2019-12-27T16:58:15.000Z",
+            "updatedDate": "2019-12-27T16:58:15.000Z",
+            "hasSubTasksFlag": false,
+            "processName": "LoanApplicationProcessing",
+            "processId": "170001",
+            "processDefId": "oracleinternalpcs~LoanApproval2!2~LoanApplicationProcessing",
+            "processInstanceDetail": {
+                "length": 0,
+                "rel": "processInstanceDetail",
+                "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/processes/170001"
+            },
+            "assignees": {
+                "hasMore": false,
+                "items": [
+                    {
+                        "type": "role",
+                        "levels": 0,
+                        "id": "LoanApproval2.LoanApplicant_1_2"
+                    }
+                ]
+            },
+            "length": 0,
+            "rel": "self",
+            "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/tasks/200552"
+        }
+    ],
+    "links": [
+        {
+            "length": 0,
+            "rel": "parent",
+            "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/"
+        },
+        {
+            "length": 0,
+            "rel": "self",
+            "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/tasks?status=ASSIGNED&priority=&assignment=MY_AND_GROUP&keyword=&limit=25&offset=0&since=&until="
+        },
+        {
+            "length": 0,
+            "rel": "canonical",
+            "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/tasks"
+        }
+    ]
+}

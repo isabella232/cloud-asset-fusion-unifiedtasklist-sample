@@ -1,0 +1,439 @@
+{
+  "pageModelVersion": "18.4.1",
+  "title": "",
+  "description": "",
+  "variables": {
+    "varTaskSourceOptions": {
+      "type": "vb/ArrayDataProvider",
+      "defaultValue": {
+        "itemType": "typOptions",
+        "idAttribute": "value"
+      }
+    },
+    "varTaskURL": {
+      "type": "string"
+    },
+    "varTaskSourceOptionsSelected": {
+      "type": "string"
+    },
+    "varTaskList": {
+      "type": "vb/ArrayDataProvider",
+      "defaultValue": {
+        "itemType": "typTasks",
+        "idAttribute": "TaskID"
+      }
+    }
+  },
+  "types": {
+    "typTasks": {
+      "DateAssigned": "string",
+      "AssignedBy": "string",
+      "TaskID": "string",
+      "Source": "string",
+      "Subject": "string",
+      "Status": "string"
+    },
+    "typArrTasks": "typTasks[]",
+    "typOptions": {
+      "option": "string",
+      "value": "string"
+    }
+  },
+  "chains": {
+    "TableFirstSelectedRowChangeChain": {
+      "description": "",
+      "variables": {
+        "rowKey": {
+          "required": true,
+          "type": "any",
+          "input": "fromCaller"
+        },
+        "rowData": {
+          "required": true,
+          "type": "any",
+          "input": "fromCaller"
+        }
+      },
+      "root": "callgetTaskDetailURL",
+      "actions": {
+        "callgetTaskDetailURL": {
+          "module": "vb/action/builtin/callModuleFunctionAction",
+          "parameters": {
+            "module": "[[ $page.functions ]]",
+            "functionName": "getTaskDetailURL",
+            "params": [
+              "{{ $chain.variables.rowData }}",
+              "{{ $page.constants.constTaskSourceList }}"
+            ],
+            "returnType": "flow:typFunctionReturn"
+          },
+          "outcomes": {
+            "success": "ifStatusGetTaskDetailUrl"
+          }
+        },
+        "setTaskDetailURL": {
+          "module": "vb/action/builtin/assignVariablesAction",
+          "outcomes": {
+            "success": "openTaskDetailURL"
+          },
+          "parameters": {
+            "$page.variables.varTaskURL": {
+              "source": "{{ $chain.results.callgetTaskDetailURL.retObject }}"
+            }
+          }
+        },
+        "openTaskDetailURL": {
+          "module": "vb/action/builtin/openUrlAction",
+          "parameters": {
+            "url": "[[ $page.variables.varTaskURL ]]",
+            "windowName": "\"TaskDetails\""
+          }
+        },
+        "fireNotificationErrorGetTaskDetailUrl": {
+          "module": "vb/action/builtin/fireNotificationEventAction",
+          "parameters": {
+            "message": "[[ $chain.results.callgetTaskDetailURL.retMessage ]]",
+            "summary": "Error getting Task Detail URL"
+          }
+        },
+        "ifStatusGetTaskDetailUrl": {
+          "module": "vb/action/builtin/ifAction",
+          "outcomes": {
+            "true": "setTaskDetailURL",
+            "false": "fireNotificationErrorGetTaskDetailUrl"
+          },
+          "parameters": {
+            "condition": "[[ $chain.results.callgetTaskDetailURL.retStatus ==0 ]]"
+          }
+        }
+      }
+    },
+    "SingleSelectValueChangeChain": {
+      "description": "",
+      "variables": {
+        "value": {
+          "required": true,
+          "type": "any",
+          "input": "fromCaller"
+        }
+      },
+      "root": "forEach1",
+      "actions": {
+        "forEach1": {
+          "module": "vb/action/builtin/forEachAction",
+          "parameters": {
+            "items": "{{ $page.variables.varTaskList.data }}",
+            "actionId": "fireDataProviderEvent1"
+          },
+          "outcomes": {
+            "success": "IfTaskSourceIsSelected"
+          }
+        },
+        "fireDataProviderEvent1": {
+          "module": "vb/action/builtin/fireDataProviderEventAction",
+          "parameters": {
+            "remove": "{{ $current }}",
+            "target": "[[ $page.variables.varTaskList ]]"
+          }
+        },
+        "ifStatusOfLoadTaskList": {
+          "module": "vb/action/builtin/ifAction",
+          "parameters": {
+            "condition": "[[ $chain.results.callFunctionLoadTaskList[0].retStatus ]]==0"
+          },
+          "outcomes": {
+            "true": "setTaskList",
+            "false": "fireNotification1"
+          }
+        },
+        "fireNotification1": {
+          "module": "vb/action/builtin/fireNotificationEventAction",
+          "parameters": {
+            "summary": "ERROR",
+            "message": "[[ $chain.results.callFunctionLoadTaskList[0].retMessage ]]"
+          }
+        },
+        "callFunctionLoadTaskList": {
+          "module": "vb/action/builtin/callModuleFunctionAction",
+          "parameters": {
+            "module": "[[ $page.functions ]]",
+            "functionName": "loadTaskList",
+            "params": [
+              "{{ $page.constants.constTaskSourceList }}",
+              "{{ $chain.variables.value }}"
+            ],
+            "returnType": "flow:typFunctionReturn[]"
+          },
+          "outcomes": {
+            "success": "ifStatusOfLoadTaskList"
+          }
+        },
+        "IfTaskSourceIsSelected": {
+          "module": "vb/action/builtin/ifAction",
+          "parameters": {
+            "condition": "[[ $chain.variables.value != null ]] "
+          },
+          "outcomes": {
+            "true": "callFunctionLoadTaskList"
+          }
+        },
+        "setTaskList": {
+          "module": "vb/action/builtin/assignVariablesAction",
+          "parameters": {
+            "$page.variables.varTaskList": {
+              "source": {
+                "data": "{{ $chain.results.callFunctionLoadTaskList[0].retObject }}"
+              },
+              "reset": "none",
+              "auto": "always"
+            }
+          }
+        }
+      }
+    },
+    "RefreshTaskList": {
+      "description": "",
+      "variables": {
+        "detail": {
+          "required": true,
+          "type": "any",
+          "input": "fromCaller"
+        }
+      },
+      "root": "forEachTaskADPItem",
+      "actions": {
+        "callFunctionLoadTaskList": {
+          "module": "vb/action/builtin/callModuleFunctionAction",
+          "parameters": {
+            "module": "[[ $page.functions ]]",
+            "functionName": "loadTaskList",
+            "params": [
+              "{{ $page.constants.constTaskSourceList }}",
+              "{{ $page.variables.varTaskSourceOptionsSelected }}"
+            ],
+            "returnType": "flow:typFunctionReturn[]"
+          },
+          "outcomes": {
+            "success": "if1"
+          }
+        },
+        "if1": {
+          "module": "vb/action/builtin/ifAction",
+          "parameters": {
+            "condition": "[[ $chain.results.callFunctionLoadTaskList[0].retStatus == 0 ]]"
+          },
+          "outcomes": {
+            "true": "assignTaskList",
+            "false": "fireNotification1"
+          }
+        },
+        "fireNotification1": {
+          "module": "vb/action/builtin/fireNotificationEventAction",
+          "parameters": {
+            "summary": "Error",
+            "message": "[[ $chain.results.callFunctionLoadTaskList[0].retMessage ]]"
+          }
+        },
+        "forEachTaskADPItem": {
+          "module": "vb/action/builtin/forEachAction",
+          "outcomes": {
+            "success": "callFunctionLoadTaskList"
+          },
+          "parameters": {
+            "items": "{{ $page.variables.varTaskList.data }}",
+            "actionId": "fireDataProviderEvent1"
+          }
+        },
+        "fireDataProviderEvent1": {
+          "module": "vb/action/builtin/fireDataProviderEventAction",
+          "parameters": {
+            "remove": "{{ $current }}",
+            "target": "[[ $page.variables.varTaskList ]]"
+          }
+        },
+        "assignTaskList": {
+          "module": "vb/action/builtin/assignVariablesAction",
+          "parameters": {
+            "$page.variables.varTaskList": {
+              "source": {
+                "data": "{{ $chain.results.callFunctionLoadTaskList[0].retObject }}"
+              },
+              "reset": "none",
+              "auto": "always"
+            }
+          }
+        }
+      }
+    },
+    "initializePage": {
+      "root": "callpopulateTaskSourceDropDown",
+      "description": "",
+      "actions": {
+        "callpopulateTaskSourceDropDown": {
+          "module": "vb/action/builtin/callModuleFunctionAction",
+          "parameters": {
+            "module": "[[ $page.functions ]]",
+            "functionName": "populateTaskSourceDropDown",
+            "params": [
+              "{{ $page.constants.constTaskSourceList }}"
+            ],
+            "returnType": "flow:typFunctionReturn"
+          },
+          "outcomes": {
+            "success": "ifStatusCallPopulateTaskSourceList"
+          }
+        },
+        "fireErrorNotification": {
+          "module": "vb/action/builtin/fireNotificationEventAction",
+          "parameters": {
+            "summary": "Error!",
+            "message": "[[ $chain.results.callpopulateTaskSourceDropDown.retMessage ]]"
+          },
+          "outcomes": {
+            "success": "returnOnError"
+          }
+        },
+        "AssignADPforTaskSourceList": {
+          "module": "vb/action/builtin/assignVariablesAction",
+          "parameters": {
+            "$page.variables.varTaskSourceOptionsSelected": {
+              "source": "All"
+            },
+            "$page.variables.varTaskSourceOptions": {
+              "source": {
+                "data": "{{ $chain.results.callpopulateTaskSourceDropDown.retObject }}"
+              },
+              "reset": "none",
+              "auto": "always"
+            }
+          }
+        },
+        "returnOnError": {
+          "module": "vb/action/builtin/returnAction",
+          "parameters": {
+            "outcome": "failure"
+          }
+        },
+        "ifStatusCallPopulateTaskSourceList": {
+          "module": "vb/action/builtin/ifAction",
+          "parameters": {
+            "condition": "[[ $chain.results.callpopulateTaskSourceDropDown.retStatus ]] == 0"
+          },
+          "outcomes": {
+            "true": "AssignADPforTaskSourceList",
+            "false": "fireErrorNotification"
+          }
+        }
+      }
+    },
+    "ButtonActionChain": {
+      "description": "",
+      "variables": {
+        "detail": {
+          "required": true,
+          "type": "any",
+          "input": "fromCaller"
+        }
+      },
+      "root": "navigateToPage1",
+      "actions": {
+        "navigateToPage1": {
+          "module": "vb/action/builtin/navigateToPageAction",
+          "parameters": {
+            "page": "unifiedtasklist-configuration"
+          }
+        }
+      }
+    }
+  },
+  "eventListeners": {
+    "vbEnter": {
+      "chains": [{
+        "chainId": "initializePage",
+        "parameters": {}
+      }]
+    },
+    "ojTable6373984311FirstSelectedRow": {
+      "chains": [{
+        "chainId": "TableFirstSelectedRowChangeChain",
+        "parameters": {
+          "rowKey": "{{$event.detail.value.key}}",
+          "rowData": "{{$event.detail.value.data}}"
+        }
+      }]
+    },
+    "ojSelectOne3956985381Value": {
+      "chains": [
+        {
+          "chainId": "SingleSelectValueChangeChain",
+          "parameters": {
+            "value": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "ojButton3185177701OjAction": {
+      "chains": [
+        {
+          "chainId": "RefreshTaskList",
+          "parameters": {
+            "detail": "{{ $event.detail }}"
+          }
+        }
+      ]
+    },
+    "ojButton3185177702OjAction": {
+      "chains": [
+        {
+          "chainId": "ButtonActionChain",
+          "parameters": {
+            "detail": "{{ $event.detail }}"
+          }
+        }
+      ]
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-label": {
+        "path": "ojs/ojlabel"
+      },
+      "oj-select-one": {
+        "path": "ojs/ojselectcombobox"
+      },
+      "oj-combobox-one": {
+        "path": "ojs/ojselectcombobox"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
+      "oj-select-many": {
+        "path": "ojs/ojselectcombobox"
+      },
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      }
+    }
+  },
+  "constants": {
+    "constSaaSTaskDetailURLParts": {
+      "type": "object",
+      "defaultValue": {
+        "newBtnID": "_FOpt1:_FOr1:0:_FONSr2:0:_FOTsr1:0:pt1:r3:1:tldc:fetchNewTask",
+        "nextBtnID": "_FOpt1:_FOr1:0:_FONSr2:0:_FOTsr1:0:pt1:r3:1:tldc:fetchNextTask",
+        "prevBtnID": "_FOpt1:_FOr1:0:_FONSr2:0:_FOTsr1:0:pt1:r3:1:tldc:fetchPreviousTask",
+        "refBtnID": "_FOpt1:_FOr1:0:_FONSr2:0:_FOTsr1:0:pt1:r3:1:tldc:refreshTaskList",
+        "refreshURL": "https://saasserver.oraclecloud.com:443/fscmUI/faces/FuseOverview",
+        "sameBtnID": "_FOpt1:_FOr1:0:_FONSr2:0:_FOTsr1:0:pt1:r3:1:tldc:fetchSameTask",
+        "tfDoc": "/WEB-INF/taskDetail-task-flow-definition.xml"
+      }
+    },
+    "constTaskSourceList": {
+      "type": "object[]",
+      "defaultValue": "[[ $flow.constants.constTaskSourceList ]]"
+    }
+  }
+}

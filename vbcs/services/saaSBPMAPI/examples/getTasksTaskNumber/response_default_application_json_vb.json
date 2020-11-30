@@ -1,0 +1,172 @@
+{
+    "category": "Manager (e.g. Promotion, Transfer)",
+    "hasSubTasksFlag": false,
+    "approvalDuration": 0,
+    "fromUserName": "hcm_impl",
+    "identificationKey": "300000189958625",
+    "fromUserDisplayName": "HCM_IMPL",
+    "assignedDate": "2019-12-24 06:09:02",
+    "taskDefinitionName": "SaveForLaterTask",
+    "taskNamespace": "http://xmlns.oracle.com/apps/hcm/common/transaction/saveForLaterTask",
+    "updatedDate": "2019-12-24 06:09:02",
+    "createdDate": "2019-12-24 06:09:02",
+    "attachments": {
+        "href": "https://saasServer-ext.oracledomain.com:443/bpm/api/4.0/tasks/384238/attachments",
+        "rel": "attachments",
+        "length": 0
+    },
+    "assignees": {
+        "hasMore": false,
+        "items": [
+            {
+                "id": "hcm_impl",
+                "type": "user"
+            }
+        ]
+    },
+    "actionList": [
+        {
+            "actionId": "UPDATE_COMMENT",
+            "actionType": "System",
+            "length": 0,
+            "title": "UPDATE_COMMENT"
+        },
+        {
+            "actionId": "SKIP_CURRENT_ASSIGNMENT",
+            "actionType": "System",
+            "length": 0,
+            "title": "SKIP_CURRENT_ASSIGNMENT"
+        },
+        {
+            "actionId": "VIEW_SUB_TASKS",
+            "actionType": "System",
+            "length": 0,
+            "title": "VIEW_SUB_TASKS"
+        },
+        {
+            "actionId": "DELEGATE",
+            "actionType": "System",
+            "length": 0,
+            "title": "DELEGATE"
+        },
+        {
+            "actionId": "SAVE",
+            "actionType": "System",
+            "length": 0,
+            "title": "SAVE"
+        },
+        {
+            "actionId": "UPDATE_ATTACHMENT",
+            "actionType": "System",
+            "length": 0,
+            "title": "UPDATE_ATTACHMENT"
+        },
+        {
+            "actionId": "CREATE_TODO",
+            "actionType": "System",
+            "length": 0,
+            "title": "CREATE_TODO"
+        },
+        {
+            "actionId": "SUSPEND_TIMERS",
+            "actionType": "System",
+            "length": 0,
+            "title": "SUSPEND_TIMERS"
+        },
+        {
+            "actionId": "VIEW_PROCESS_HISTORY",
+            "actionType": "System",
+            "length": 0,
+            "title": "VIEW_PROCESS_HISTORY"
+        },
+        {
+            "actionId": "VIEW_TASK",
+            "actionType": "System",
+            "length": 0,
+            "title": "VIEW_TASK"
+        },
+        {
+            "actionId": "CUSTOM",
+            "actionType": "System",
+            "length": 0,
+            "title": "CUSTOM"
+        },
+        {
+            "actionId": "OVERRIDE_ROUTING_SLIP",
+            "actionType": "System",
+            "length": 0,
+            "title": "OVERRIDE_ROUTING_SLIP"
+        },
+        {
+            "actionId": "INFO_REQUEST",
+            "actionType": "System",
+            "length": 0,
+            "title": "INFO_REQUEST"
+        },
+        {
+            "actionId": "WITHDRAW",
+            "actionType": "System",
+            "length": 0,
+            "title": "WITHDRAW"
+        },
+        {
+            "actionId": "DECOMPOSE_TASK",
+            "actionType": "System",
+            "length": 0,
+            "title": "DECOMPOSE_TASK"
+        },
+        {
+            "actionId": "VIEW_TASK_HISTORY",
+            "actionType": "System",
+            "length": 0,
+            "title": "VIEW_TASK_HISTORY"
+        },
+        {
+            "actionId": "HtOutcmeDismiss",
+            "actionType": "Custom",
+            "length": 0,
+            "title": "Discard"
+        }
+    ],
+    "titlePrefix": "Submitted",
+    "createdBy": "HCM_IMPL",
+    "history": {
+        "href": "https://saasServer-ext.oracledomain.com:443/bpm/api/4.0/tasks/384238/history",
+        "rel": "self",
+        "length": 0
+    },
+    "payload": {
+        "href": "https://saasServer-ext.oracledomain.com:443/bpm/api/4.0/tasks/384238/payload",
+        "rel": "self",
+        "length": 0
+    },
+    "links": [
+        {
+            "href": "https://saasServer-ext.oracledomain.com:443/bpm/api/4.0/tasks/",
+            "rel": "parent",
+            "length": 0
+        },
+        {
+            "href": "https://saasServer-ext.oracledomain.com:443/bpm/api/4.0/tasks/384238",
+            "rel": "self",
+            "length": 0
+        },
+        {
+            "href": "https://saasServer-ext.oracledomain.com:443/bpm/api/4.0/tasks/384238",
+            "rel": "canonical",
+            "length": 0
+        }
+    ],
+    "priority": 3,
+    "state": "ASSIGNED",
+    "number": 384238,
+    "applicationContext": "hcm",
+    "comments": {
+        "href": "https://saasServer-ext.oracledomain.com:443/bpm/api/4.0/tasks/384238/comments",
+        "rel": "self",
+        "length": 0
+    },
+    "taskId": "2c73b330-7944-4dc7-81fb-c1b5d8b6a2db",
+    "length": 0,
+    "title": "Hire for John010 Doe010, 4392 (2019-12-24): Process Was Saved"
+}

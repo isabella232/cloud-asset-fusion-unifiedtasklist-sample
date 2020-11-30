@@ -1,0 +1,245 @@
+{
+    "totalResults": 7,
+    "hasMore": false,
+    "links": [
+        {
+            "href": "https://saasServer-ext.oracledomain.com:443/bpm/api/4.0/",
+            "rel": "parent",
+            "length": 0
+        },
+        {
+            "href": "https://saasServer-ext.oracledomain.com:443/bpm/api/4.0/tasks?status=ASSIGNED&priority=&assignment=MY_AND_GROUP&keyword=&limit=25&offset=0&since=&until=",
+            "rel": "self",
+            "length": 0
+        },
+        {
+            "href": "https://saasServer-ext.oracledomain.com:443/bpm/api/4.0/tasks",
+            "rel": "canonical",
+            "length": 0
+        }
+    ],
+    "count": 7,
+    "items": [
+        {
+            "category": "Manager (e.g. Promotion, Transfer)",
+            "hasSubTasksFlag": false,
+            "approvalDuration": 0,
+            "fromUserName": "hcm_impl",
+            "identificationKey": "300000189958625",
+            "fromUserDisplayName": "HCM_IMPL",
+            "assignedDate": "2019-12-24 06:09:02",
+            "taskDefinitionName": "SaveForLaterTask",
+            "taskNamespace": "http://xmlns.oracle.com/apps/hcm/common/transaction/saveForLaterTask",
+            "updatedDate": "2019-12-24 06:09:02",
+            "createdDate": "2019-12-24 06:09:02",
+            "assignees": {
+                "hasMore": false,
+                "items": [
+                    {
+                        "id": "hcm_impl",
+                        "type": "user"
+                    }
+                ]
+            },
+            "titlePrefix": "Submitted",
+            "createdBy": "HCM_IMPL",
+            "priority": 3,
+            "state": "ASSIGNED",
+            "number": 384238,
+            "taskId": "2c73b330-7944-4dc7-81fb-c1b5d8b6a2db",
+            "href": "https://saasServer-ext.oracledomain.com:443/bpm/api/4.0/tasks/384238",
+            "rel": "self",
+            "length": 0,
+            "title": "Hire for John010 Doe010, 4392 (2019-12-24): Process Was Saved"
+        },
+        {
+            "category": "Manager (e.g. Promotion, Transfer)",
+            "hasSubTasksFlag": false,
+            "approvalDuration": 0,
+            "fromUserName": "hcm_impl",
+            "ownerUser": "HCM_IMPL",
+            "identificationKey": "300000189954173",
+            "fromUserDisplayName": "HCM_IMPL",
+            "assignedDate": "2019-12-24 06:30:21",
+            "taskDefinitionName": "AllocatedHumantask",
+            "taskNamespace": "http://xmlns.oracle.com/apps/hcm/employment/checklists/allocatedHumanTask",
+            "updatedDate": "2019-12-24 06:30:21",
+            "createdDate": "2019-12-24 06:30:21",
+            "assignees": {
+                "hasMore": false,
+                "items": [
+                    {
+                        "id": "hcm_impl",
+                        "type": "user"
+                    }
+                ]
+            },
+            "titlePrefix": "Submitted",
+            "createdBy": "HCM_IMPL",
+            "priority": 3,
+            "state": "ASSIGNED",
+            "number": 384242,
+            "taskId": "a4a983ce-3279-4494-8bbc-2cdcb4c62151",
+            "href": "https://saasServer-ext.oracledomain.com:443/bpm/api/4.0/tasks/384242",
+            "rel": "self",
+            "length": 0,
+            "title": "Task Order Equipment Allocated for James Hudson, 1894 Was Assigned to You (Initiator)"
+        },
+        {
+            "category": "Manager (e.g. Promotion, Transfer)",
+            "hasSubTasksFlag": false,
+            "approvalDuration": 0,
+            "fromUserName": "hcm_impl",
+            "ownerUser": "HCM_IMPL",
+            "identificationKey": "300000189954201",
+            "fromUserDisplayName": "HCM_IMPL",
+            "assignedDate": "2019-12-24 06:30:21",
+            "taskDefinitionName": "AllocatedHumantask",
+            "taskNamespace": "http://xmlns.oracle.com/apps/hcm/employment/checklists/allocatedHumanTask",
+            "updatedDate": "2019-12-24 06:30:22",
+            "createdDate": "2019-12-24 06:30:22",
+            "assignees": {
+                "hasMore": false,
+                "items": [
+                    {
+                        "id": "hcm_impl",
+                        "type": "user"
+                    }
+                ]
+            },
+            "titlePrefix": "Submitted",
+            "createdBy": "HCM_IMPL",
+            "priority": 3,
+            "state": "ASSIGNED",
+            "number": 384248,
+            "taskId": "fb0883ad-c052-4086-b198-c0695d951483",
+            "href": "https://saasServer-ext.oracledomain.com:443/bpm/api/4.0/tasks/384248",
+            "rel": "self",
+            "length": 0,
+            "title": "Task Welcome your employee Allocated for James Hudson, 1894 Was Assigned to You (Initiator)"
+        },
+        {
+            "category": "Manager (e.g. Promotion, Transfer)",
+            "hasSubTasksFlag": false,
+            "approvalDuration": 0,
+            "ownerUser": "HCM_IMPL",
+            "identificationKey": "300000189954221",
+            "assignedDate": "2019-12-24 06:30:22",
+            "taskDefinitionName": "AllocatedChecklistTaskFYI",
+            "taskNamespace": "http://xmlns.oracle.com/apps/hcm/employment/checklists/allocatedChecklistTaskFYI",
+            "updatedDate": "2019-12-24 06:30:22",
+            "createdDate": "2019-12-24 06:30:22",
+            "assignees": {
+                "hasMore": false,
+                "items": [
+                    {
+                        "id": "hcm_impl",
+                        "type": "user"
+                    }
+                ]
+            },
+            "titlePrefix": "FYI",
+            "priority": 3,
+            "state": "ASSIGNED",
+            "number": 384257,
+            "taskId": "8b383607-750e-4b1c-b709-e12259f1cc35",
+            "href": "https://saasServer-ext.oracledomain.com:443/bpm/api/4.0/tasks/384257",
+            "rel": "self",
+            "length": 0,
+            "title": "Task Define your goals Allocated for James Hudson, 1894 Was Assigned to James Hudson, 1894"
+        },
+        {
+            "category": "Manager (e.g. Promotion, Transfer)",
+            "hasSubTasksFlag": false,
+            "approvalDuration": 0,
+            "ownerUser": "HCM_IMPL",
+            "identificationKey": "300000189954224",
+            "assignedDate": "2019-12-24 06:30:22",
+            "taskDefinitionName": "AllocatedChecklistTaskFYI",
+            "taskNamespace": "http://xmlns.oracle.com/apps/hcm/employment/checklists/allocatedChecklistTaskFYI",
+            "updatedDate": "2019-12-24 06:30:22",
+            "createdDate": "2019-12-24 06:30:22",
+            "assignees": {
+                "hasMore": false,
+                "items": [
+                    {
+                        "id": "hcm_impl",
+                        "type": "user"
+                    }
+                ]
+            },
+            "titlePrefix": "FYI",
+            "priority": 3,
+            "state": "ASSIGNED",
+            "number": 384258,
+            "taskId": "dcf73d1a-d83b-4fa7-ad07-fd59fb014011",
+            "href": "https://saasServer-ext.oracledomain.com:443/bpm/api/4.0/tasks/384258",
+            "rel": "self",
+            "length": 0,
+            "title": "Task Get prepared for a giant pizza contest! Allocated for James Hudson, 1894 Was Assigned to James Hudson, 1894"
+        },
+        {
+            "category": "Manager (e.g. Promotion, Transfer)",
+            "hasSubTasksFlag": false,
+            "approvalDuration": 0,
+            "ownerUser": "HCM_IMPL",
+            "identificationKey": "300000189954220",
+            "assignedDate": "2019-12-24 06:30:22",
+            "taskDefinitionName": "AllocatedChecklistTaskFYI",
+            "taskNamespace": "http://xmlns.oracle.com/apps/hcm/employment/checklists/allocatedChecklistTaskFYI",
+            "updatedDate": "2019-12-24 06:30:22",
+            "createdDate": "2019-12-24 06:30:22",
+            "assignees": {
+                "hasMore": false,
+                "items": [
+                    {
+                        "id": "hcm_impl",
+                        "type": "user"
+                    }
+                ]
+            },
+            "titlePrefix": "FYI",
+            "priority": 3,
+            "state": "ASSIGNED",
+            "number": 384259,
+            "taskId": "5eece3bd-3f61-44d4-aa15-03ea96922d57",
+            "href": "https://saasServer-ext.oracledomain.com:443/bpm/api/4.0/tasks/384259",
+            "rel": "self",
+            "length": 0,
+            "title": "Task Bring your Dog to Work Day! Allocated for James Hudson, 1894 Was Assigned to James Hudson, 1894"
+        },
+        {
+            "category": "Manager (e.g. Promotion, Transfer)",
+            "hasSubTasksFlag": false,
+            "approvalDuration": 0,
+            "fromUserName": "hcm_impl",
+            "ownerUser": "HCM_IMPL",
+            "identificationKey": "300000189954177",
+            "fromUserDisplayName": "HCM_IMPL",
+            "assignedDate": "2019-12-26 00:00:06",
+            "taskDefinitionName": "AllocatedHumantask",
+            "taskNamespace": "http://xmlns.oracle.com/apps/hcm/employment/checklists/allocatedHumanTask",
+            "updatedDate": "2019-12-26 00:00:06",
+            "createdDate": "2019-12-26 00:00:06",
+            "assignees": {
+                "hasMore": false,
+                "items": [
+                    {
+                        "id": "hcm_impl",
+                        "type": "user"
+                    }
+                ]
+            },
+            "titlePrefix": "Submitted",
+            "createdBy": "HCM_IMPL",
+            "priority": 3,
+            "state": "ASSIGNED",
+            "number": 384271,
+            "taskId": "fa211829-eb93-4103-8003-782cbed43330",
+            "href": "https://saasServer-ext.oracledomain.com:443/bpm/api/4.0/tasks/384271",
+            "rel": "self",
+            "length": 0,
+            "title": "Task Send a personalized communication Allocated for James Hudson, 1894 Was Assigned to You (Initiator)"
+        }
+    ]
+}

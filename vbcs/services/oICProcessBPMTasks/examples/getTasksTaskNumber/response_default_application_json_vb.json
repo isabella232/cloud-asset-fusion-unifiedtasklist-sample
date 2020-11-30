@@ -1,0 +1,258 @@
+{
+    "title": "Submit Appraisal Documents",
+    "number": 200541,
+    "createdBy": "Jon Doe",
+    "fromUserDisplayName": "Jon Doe",
+    "fromUserName": "jon.doe@somewhere.com",
+    "priority": 3,
+    "shortSummary": "Submit Appraisal Documents",
+    "ownerRole": "LoanApproval2.Process Owner",
+    "status": "ASSIGNED",
+    "state": "ASSIGNED",
+    "assignedDate": "2019-12-27T16:55:59.000Z",
+    "createdDate": "2019-12-27T16:55:58.000Z",
+    "updatedDate": "2019-12-27T16:55:58.000Z",
+    "hasSubTasksFlag": false,
+    "routingType": "SINGLE",
+    "processName": "LoanApplicationProcessing",
+    "processId": "160001",
+    "processDefId": "oracleinternalpcs~LoanApproval2!2~LoanApplicationProcessing",
+    "isDocsEnabledFlag": true,
+    "isConversationEnabledFlag": false,
+    "formMetadata": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/webforms/oracleinternalpcs~LoanApproval2!2~LoanApplicationProcessing~feceb6be-e136-4bb0-88f0-5eda948da7ec~9e39af96-3473-4ed2-954d-9e03b039bcd9",
+    "dcsFolders": {
+        "length": 0,
+        "rel": "folders",
+        "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/tasks/200541/folders"
+    },
+    "processInstanceDetail": {
+        "length": 0,
+        "rel": "processInstanceDetail",
+        "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/processes/160001"
+    },
+    "rolesPlayedByUser": [
+        "PUBLIC",
+        "ASSIGNEES",
+        "CREATOR",
+        "OWNER",
+        "ADMIN",
+        "Participant1"
+    ],
+    "reviewers": {
+        "hasMore": false,
+        "items": [
+            {
+                "type": "role",
+                "levels": 0,
+                "id": "LoanApproval2.ProcessReviewer"
+            }
+        ]
+    },
+    "assignees": {
+        "hasMore": false,
+        "items": [
+            {
+                "type": "role",
+                "levels": 0,
+                "id": "LoanApproval2.PropertyAppraiser"
+            }
+        ]
+    },
+    "originalAssignees": {
+        "count": 1,
+        "hasMore": false,
+        "totalResult": true,
+        "items": [
+            {
+                "type": "role",
+                "levels": 0,
+                "id": "bpm:getPerformer()"
+            }
+        ]
+    },
+    "payload": {
+        "payload": {
+            "length": 0,
+            "rel": "self",
+            "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/tasks/200541/payload"
+        }
+    },
+    "history": {
+        "history": {
+            "length": 0,
+            "rel": "self",
+            "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/tasks/200541/history"
+        }
+    },
+    "comments": {
+        "comments": {
+            "length": 0,
+            "rel": "self",
+            "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/tasks/200541/comments"
+        }
+    },
+    "actionList": [
+        {
+            "length": 0,
+            "title": "CREATE_TODO",
+            "actionId": "CREATE_TODO",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "VIEW_PROCESS_HISTORY",
+            "actionId": "VIEW_PROCESS_HISTORY",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "SKIP_CURRENT_ASSIGNMENT",
+            "actionId": "SKIP_CURRENT_ASSIGNMENT",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "VIEW_TASK",
+            "actionId": "VIEW_TASK",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "RENEW",
+            "actionId": "RENEW",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "VIEW_TASK_HISTORY",
+            "actionId": "VIEW_TASK_HISTORY",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "START_TASK",
+            "actionId": "START_TASK",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "SUSPEND_TIMERS",
+            "actionId": "SUSPEND_TIMERS",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "UPDATE_TASK_PAYLOAD",
+            "actionId": "UPDATE_TASK_PAYLOAD",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "ACQUIRE",
+            "actionId": "ACQUIRE",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "ESCALATE",
+            "actionId": "ESCALATE",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "WITHDRAW",
+            "actionId": "WITHDRAW",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "OVERRIDE_ROUTING_SLIP",
+            "actionId": "OVERRIDE_ROUTING_SLIP",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "VIEW_SUB_TASKS",
+            "actionId": "VIEW_SUB_TASKS",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "CUSTOM",
+            "actionId": "CUSTOM",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "UPDATE",
+            "actionId": "UPDATE",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "UPDATE_ATTACHMENT",
+            "actionId": "UPDATE_ATTACHMENT",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "UPDATE_COMMENT",
+            "actionId": "UPDATE_COMMENT",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "INFO_REQUEST",
+            "actionId": "INFO_REQUEST",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "REASSIGN",
+            "actionId": "REASSIGN",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "SUSPEND",
+            "actionId": "SUSPEND",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "DECOMPOSE_TASK",
+            "actionId": "DECOMPOSE_TASK",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "DELEGATE",
+            "actionId": "DELEGATE",
+            "actionType": "System"
+        },
+        {
+            "length": 0,
+            "title": "Submit",
+            "actionId": "SUBMIT",
+            "actionType": "Custom"
+        }
+    ],
+    "length": 0,
+    "links": [
+        {
+            "length": 0,
+            "rel": "parent",
+            "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/tasks/"
+        },
+        {
+            "length": 0,
+            "rel": "self",
+            "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/tasks/200541"
+        },
+        {
+            "length": 0,
+            "rel": "canonical",
+            "href": "https://xxxxx.yyyyy.integration.ocp.oraclecloud.com:443/ic/api/process/v1/tasks/200541"
+        }
+    ]
+}

@@ -1,0 +1,314 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "SaaSBPMAPI",
+        "version": "1.0.0",
+        "x-vb": {
+            "secureHeaders": {
+                "Authorization": "oracle_custom_28187889-841f-458c-84a3-7ad7571c0a75"
+            }
+        }
+    },
+    "servers": [
+        {
+            "url": "https://FusionCloudHostname/bpm/api/4.0",
+            "x-vb": {
+                "forceProxy": "always",
+                "anonymousAccess": true
+            }
+        }
+    ],
+    "paths": {
+        "/tasks": {
+            "get": {
+                "operationId": "getTasks",
+                "responses": {
+                    "default": {
+                        "description": "The content returned by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Gettask"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "externalValue": "./examples/getTasks/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/tasks/{taskNumber}": {
+            "get": {
+                "operationId": "getTasksTaskNumber",
+                "parameters": [
+                    {
+                        "name": "taskNumber",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "The content returned by the server.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Gettaskstasknumber"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "externalValue": "./examples/getTasksTaskNumber/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Gettask": {
+                "type": "object",
+                "properties": {
+                    "totalResults": {
+                        "type": "number"
+                    },
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Link"
+                        }
+                    },
+                    "count": {
+                        "type": "number"
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Item"
+                        }
+                    }
+                }
+            },
+            "Link": {
+                "type": "object",
+                "properties": {
+                    "href": {
+                        "type": "string"
+                    },
+                    "rel": {
+                        "type": "string"
+                    },
+                    "length": {
+                        "type": "number"
+                    }
+                }
+            },
+            "Item": {
+                "type": "object",
+                "properties": {
+                    "category": {
+                        "type": "string"
+                    },
+                    "hasSubTasksFlag": {
+                        "type": "boolean"
+                    },
+                    "approvalDuration": {
+                        "type": "number"
+                    },
+                    "fromUserName": {
+                        "type": "string"
+                    },
+                    "identificationKey": {
+                        "type": "string"
+                    },
+                    "fromUserDisplayName": {
+                        "type": "string"
+                    },
+                    "assignedDate": {
+                        "type": "string"
+                    },
+                    "taskDefinitionName": {
+                        "type": "string"
+                    },
+                    "taskNamespace": {
+                        "type": "string"
+                    },
+                    "updatedDate": {
+                        "type": "string"
+                    },
+                    "createdDate": {
+                        "type": "string"
+                    },
+                    "assignees": {
+                        "$ref": "#/components/schemas/Assignee"
+                    },
+                    "titlePrefix": {
+                        "type": "string"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "priority": {
+                        "type": "number"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "number": {
+                        "type": "number"
+                    },
+                    "taskId": {
+                        "type": "string"
+                    },
+                    "href": {
+                        "type": "string"
+                    },
+                    "rel": {
+                        "type": "string"
+                    },
+                    "length": {
+                        "type": "number"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "ownerUser": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Assignee": {
+                "type": "object",
+                "properties": {
+                    "hasMore": {
+                        "type": "boolean"
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Item1"
+                        }
+                    }
+                }
+            },
+            "Item1": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Gettaskstasknumber": {
+                "type": "object",
+                "properties": {
+                    "category": {
+                        "type": "string"
+                    },
+                    "hasSubTasksFlag": {
+                        "type": "boolean"
+                    },
+                    "approvalDuration": {
+                        "type": "number"
+                    },
+                    "fromUserName": {
+                        "type": "string"
+                    },
+                    "identificationKey": {
+                        "type": "string"
+                    },
+                    "fromUserDisplayName": {
+                        "type": "string"
+                    },
+                    "assignedDate": {
+                        "type": "string"
+                    },
+                    "taskDefinitionName": {
+                        "type": "string"
+                    },
+                    "taskNamespace": {
+                        "type": "string"
+                    },
+                    "updatedDate": {
+                        "type": "string"
+                    },
+                    "createdDate": {
+                        "type": "string"
+                    },
+                    "actionList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Actionlist"
+                        }
+                    },
+                    "titlePrefix": {
+                        "type": "string"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "priority": {
+                        "type": "number"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "number": {
+                        "type": "number"
+                    },
+                    "applicationContext": {
+                        "type": "string"
+                    },
+                    "taskId": {
+                        "type": "string"
+                    },
+                    "length": {
+                        "type": "number"
+                    },
+                    "title": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Actionlist": {
+                "type": "object",
+                "properties": {
+                    "actionId": {
+                        "type": "string"
+                    },
+                    "actionType": {
+                        "type": "string"
+                    },
+                    "length": {
+                        "type": "number"
+                    },
+                    "title": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

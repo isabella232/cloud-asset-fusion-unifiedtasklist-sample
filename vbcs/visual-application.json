@@ -1,0 +1,13 @@
+{
+    "vbcs.dt.version": "20200106-19.4.3.0:20200107-bufp_27957::20200119-bufp_27957::20200129-bufp_27957::20200205-bufp_27957::20200213-bufp_27957::20200123-bufp_36379::20200219-bufp_36068::20200329-bufp_38142",
+    "defaults": {
+        "visualDevelopmentPlatform": {
+            "cdnPath": "https://rt.oraclevb.com/release/",
+            "version": "19.4.3.9"
+        },
+        "jet": {
+            "cdnPath": "https://static.oracle.com/cdn/jet/",
+            "version": "8.1.0"
+        }
+    }
+}

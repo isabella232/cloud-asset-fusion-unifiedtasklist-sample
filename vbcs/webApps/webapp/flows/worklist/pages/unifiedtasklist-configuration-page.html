@@ -1,0 +1,69 @@
+<!--
+Copyright (c) 2014, 2020, Oracle and/or its affiliates.
+Licensed under The Universal Permissive License (UPL), Version 1.0
+as shown at https://oss.oracle.com/licenses/upl/
+-->
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-2">
+    <oj-button id="oj-button-2065409523-1" on-oj-action="[[$listeners.ojButton20654095231OjAction]]">&lt;Back</oj-button>
+  </div>
+</div>
+<oj-bind-if test="[[ $application.user.roles.admin ]]">
+  <div class="oj-flex">
+    <oj-label id="oj-label-2065409523-1" class="oj-flex-item oj-sm-12 oj-md-3">Task Source Configuration (Read only)</oj-label>
+  </div>
+<div class="oj-flex">
+  <oj-list-view id="oj-list-view-2065409523-1" class="oj-flex-item oj-sm-12 oj-md-12" data="[[ $variables.varTaskSourceListADP ]]" gridlines.item="hidden">
+    <template slot="itemTemplate">
+                  <div class="container">
+                      <div>
+                          <oj-label :id="[['oj-label-2065409523-2-' + $current.index]]">Task Source Name:</oj-label>
+                          <span class="name"><oj-bind-text value="[[ $current.data.name ]]"></oj-bind-text></span>
+                      </div>
+                      <div>
+                          <oj-label :id="[['oj-label-2065409523-3-' + $current.index]]">Description:</oj-label>
+                      
+                          <span class="oj-text-sm"><oj-bind-text value="[[$current.data.description]]"></oj-bind-text></span>
+                      </div>
+                      <div>
+                          <oj-label :id="[['oj-label-2065409523-4-' + $current.index]]">API for list of tasks:</oj-label>
+                      
+                          <span class="oj-text-sm"><oj-bind-text value="[[$current.data.epTaskListApi]]"></oj-bind-text></span>
+                      </div>
+                      <div>
+                      <oj-label :id="[['oj-label-2065409523-5-' + $current.index]]">Root element for tasklist:</oj-label>
+                      
+                          <span class="oj-text-sm"><oj-bind-text value="[[$current.data.epTaskListApiTasksRoot]]"></oj-bind-text></span>
+                      </div>
+                      <div>
+                      <oj-label :id="[['oj-label-2065409523-6-' + $current.index]]" class="">Task detail page URL:</oj-label>
+                      <oj-text-area :id="[['oj-text-area-2065409523-1-' + $current.index]]" readonly="true" class="oj-form-control-full-width"> <oj-bind-text style="{width:50%}" value="[[$current.data.epTaskDetailUrl]]"></oj-bind-text></oj-text-area>
+                      </div>
+                      <div>
+                      <oj-label :id="[['oj-label-2065409523-7-' + $current.index]]">Task attribute map:</oj-label>
+                      </div>
+                      <div class="oj-flex">
+                          <oj-text :id="[['oj-label-2065409523-8-' + $current.index]]">Status-&gt;</oj-text>
+                          <oj-bind-text value="[[$current.data.epTaskListApiAttributeMap.Status]]"></oj-bind-text>
+                      </div>
+                      <div class="oj-flex">
+                          <oj-text :id="[['oj-label-2065409523-8-' + $current.index]]">TaskID-&gt;</oj-text>
+                          <oj-bind-text value="[[$current.data.epTaskListApiAttributeMap.TaskID]]"></oj-bind-text>
+                      </div>
+                      <div class="oj-flex">
+                          <oj-text :id="[['oj-label-2065409523-8-' + $current.index]]">Subject-&gt;</oj-text>
+                          <oj-bind-text value="[[$current.data.epTaskListApiAttributeMap.Subject]]"></oj-bind-text>
+                      </div>
+                      <div class="oj-flex">
+                          <oj-text :id="[['oj-label-2065409523-8-' + $current.index]]">DateAssigned-&gt;</oj-text>
+                          <oj-bind-text value="[[$current.data.epTaskListApiAttributeMap.DateAssigned]]"></oj-bind-text>
+                      </div>
+                      <div class="oj-flex">
+                          <oj-text :id="[['oj-label-2065409523-8-' + $current.index]]">AssignedBy-&gt;</oj-text>
+                          <oj-bind-text value="[[$current.data.epTaskListApiAttributeMap.AssignedBy]]"></oj-bind-text>
+                      </div>
+                  </div>
+    </template>
+  </oj-list-view>
+</div>
+</oj-bind-if>

@@ -1,0 +1,53 @@
+{
+    "flowModelVersion": "18.4.1",
+    "id": "flow3",
+    "description": "Flow main",
+    "defaultPage": "unifiedtasklist",
+    "chains": {},
+    "services": {},
+    "types": {
+        "typFunctionReturn": {
+            "retStatus": "number",
+            "retMessage": "string",
+            "retObject": "any"
+        }
+      },
+    "variables": {},
+    "constants": {
+        "constTaskSourceList": {
+            "type": "object[]",
+            "defaultValue": [
+                {
+                    "name": "Fusion",
+                    "description": "Tasks from Demo Fusion GSI instance ZJNF",
+                    "epTaskListApi": "saaSBPMAPI/getTasks",
+                    "epTaskListApiTasksRoot": "items",
+                    "epTaskListApiAttributeMap": {
+                        "Status": "state",
+                        "TaskID": "taskId",
+                        "Subject": "title",
+                        "DateAssigned": "assignedDate",
+                        "AssignedBy": "fromUserName"
+                    },
+                    "epTaskDetailApi": "saaSBPMAPI/getTasksTaskNumber",
+                    "epTaskDetailUrl": "https://saasServer-ext.oracledomain.com/fscmUI/faces/adf.task-flow?adf.tfId=taskDetail-task-flow-definition&adf.tfDoc=%2FWEB-INF%2FtaskDetail-task-flow-definition.xml&refreshURL=https%3A%2F%2Fsaasserver.oracledemos.com%3A443%2FfscmUI%2Ffaces%2FFuseOverview&fetchNextTaskButtonId=_FOpt1%3A_FOr1%3A0%3A_FONSr2%3A0%3A_FOTsr1%3A0%3Apt1%3Ar3%3A1%3Atldc%3AfetchNextTask&fetchPreviousTaskButtonId=_FOpt1%3A_FOr1%3A0%3A_FONSr2%3A0%3A_FOTsr1%3A0%3Apt1%3Ar3%3A1%3Atldc%3AfetchPreviousTask&refreshTaskListButtonId=_FOpt1%3A_FOr1%3A0%3A_FONSr2%3A0%3A_FOTsr1%3A0%3Apt1%3Ar3%3A1%3Atldc%3ArefreshTaskList&fetchNewTaskButtonId=_FOpt1%3A_FOr1%3A0%3A_FONSr2%3A0%3A_FOTsr1%3A0%3Apt1%3Ar3%3A1%3Atldc%3AfetchNewTask&fetchSameTaskButtonId=_FOpt1%3A_FOr1%3A0%3A_FONSr2%3A0%3A_FOTsr1%3A0%3Apt1%3Ar3%3A1%3Atldc%3AfetchSameTask&mode=modalDialog&_afrLoop=2298369070152333&_afrWindowMode=0&_afrWindowId=SaaSTaskDetails&_adf.ctrl-state=9z6dnzg19_157&_afrFS=16&_afrMT=screen&_afrMFW=1920&_afrMFH=937&_afrMFDW=1920&_afrMFDH=1080&_afrMFC=8&_afrMFCI=0&_afrMFM=0&_afrMFR=96&_afrMFG=0&_afrMFS=0&_afrMFO=0&taskId="
+                },
+                {
+                    "name": "OCI-Process",
+                    "description": "Tasks from Ateam OIC instance",
+                    "epTaskListApi": "oICProcessBPMTasks/getTasks",
+                    "epTaskListApiTasksRoot": "items",
+                    "epTaskListApiAttributeMap": {
+                        "Status": "state",
+                        "TaskID": "number",
+                        "Subject": "title",
+                        "DateAssigned": "assignedDate",
+                        "AssignedBy": "fromUserName"
+                    },
+                    "epTaskDetailApi": "oICProcessBPMTasks/getTasksTaskNumber",
+                    "epTaskDetailUrl": "/ic/pub/components/pages/taskdetail.html?taskNumber="
+                }
+            ]
+        }
+    }
+}

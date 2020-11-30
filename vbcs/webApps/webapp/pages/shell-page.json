@@ -1,0 +1,222 @@
+{
+  "pageModelVersion": "18.4.1",
+  "description": "",
+  "routerFlow": "worklist",
+  "variables": {
+    "messagesADP": {
+      "type": "vb/ArrayDataProvider",
+      "defaultValue": {
+        "idAttribute": "id",
+        "itemType": "page:messageType"
+      }
+    },
+    "messageId": {
+      "type": "number",
+      "defaultValue": 0
+    }
+  },
+  "types": {
+    "messageType": {
+      "id": "string",
+      "severity": "string",
+      "detail": "string",
+      "autoTimeout": "number"
+    }
+  },
+  "chains": {
+    "showNotification": {
+      "variables": {
+        "eventPayload": {
+          "type": "page:messageType",
+          "input": "fromCaller"
+        }
+      },
+      "root": "displayMessage",
+      "actions": {
+        "displayMessage": {
+          "module": "vb/action/builtin/fireDataProviderEventAction",
+          "parameters": {
+            "target": "{{ $page.variables.messagesADP }}",
+            "add": {
+              "data": "{{ [ $chain.variables.eventPayload ] }}"
+            }
+          },
+          "outcomes": {
+            "success": "updateMessageId"
+          }
+        },
+        "updateMessageId": {
+          "module": "vb/action/builtin/assignVariablesAction",
+          "parameters": {
+            "$page.variables.messageId": {
+              "source": "{{ $page.variables.messageId + 1 }}"
+            }
+          }
+        }
+      }
+    },
+    "closeNotificationHandler": {
+      "variables": {
+        "eventMessage": {
+          "type": "page:messageType",
+          "input": "fromCaller"
+        }
+      },
+      "root": "removeMessage",
+      "actions": {
+        "removeMessage": {
+          "module": "vb/action/builtin/fireDataProviderEventAction",
+          "parameters": {
+            "target": "{{ $page.variables.messagesADP }}",
+            "remove": {
+              "keys": "{{ [ $variables.eventMessage.id ] }}"
+            }
+          }
+        }
+      }
+    },
+   "NavigationListSelectionChange": {
+      "description": "",
+      "variables": {
+        "selection": {
+          "required": true,
+          "type": "any",
+          "input": "fromCaller"
+        },
+        "performNavigation": {
+          "type": "boolean",
+          "input": "fromCaller"
+        }
+      },
+      "root": "if1",
+      "actions": {
+        "navigateToPage": {
+          "module": "vb/action/builtin/navigateToPageAction",
+          "parameters": {
+            "page": "[[ 'shell/' + $variables.selection ]]"
+          }
+        },
+        "if1": {
+          "module": "vb/action/builtin/ifAction",
+          "parameters": {
+            "condition": "{{ $chain.variables.performNavigation }}"
+          },
+          "outcomes": {
+            "true": "navigateToPage"
+          }
+        }
+      }
+    },
+    "setInitialTabSelection": {
+      "root": "if1",
+      "description": "",
+      "variables": {
+        "isInitialLoad": {
+          "type": "string",
+          "defaultValue": "No",
+          "required": true,
+          "input": "fromCaller"
+        }
+      },
+      "actions": {
+        "if1": {
+          "module": "vb/action/builtin/ifAction",
+          "parameters": {
+            "condition": "{{ $chain.variables.isInitialLoad == \"Yes\"}}"
+          },
+          "outcomes": {
+            "true": "callComponentMethod1"
+          }
+        },
+        "callComponentMethod1": {
+          "module": "vb/action/builtin/callComponentMethodAction",
+          "parameters": {
+            "component": "{{ document.getElementById('ApplicationsCloudUI-navigation-list-main') }}",
+            "method": "setProperty",
+            "params": [
+              "selection",
+              "main"
+            ]
+          },
+          "outcomes": {
+            "success": "assignVariables1"
+          }
+        },
+        "assignVariables1": {
+          "module": "vb/action/builtin/assignVariablesAction",
+          "parameters": {
+            "$application.variables.initialLoad": {
+              "source": "No"
+            }
+          }
+        }
+      }
+    }
+  },
+  "eventListeners": {
+    "vbNotification": {
+      "chains": [
+        {
+          "chainId": "showNotification",
+          "parameters": {
+            "eventPayload": "{{ { id: $page.variables.messageId, detail: $event.message, severity: $event.type, autoTimeout: $event.displayMode === 'transient' ? 0 : -1 } }}"
+          }
+        }
+      ]
+    },
+    "onMessageClose": {
+      "chains": [
+        {
+          "chainId": "closeNotificationHandler",
+          "parameters": {
+            "eventMessage": "{{ $event.detail.message }}"
+          }
+        }
+      ]
+    },
+    "ojNavigationListMainSelection": {
+      "chains": [
+        {
+          "chainId": "NavigationListSelectionChange",
+          "parameters": {
+            "selection": "{{ $event.detail.value }}",
+            "performNavigation": "{{ $event.detail.updatedFrom !== 'external' }}"
+          }
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "chainId": "setInitialTabSelection",
+          "parameters": {
+            "isInitialLoad": "{{ $application.variables.initialLoad }}"
+          }
+        }
+      ]
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-messages": {
+        "path": "ojs/ojmessages"
+      },
+      "oj-menu": {
+        "path": "ojs/ojmenu"
+      },
+      "oj-menu-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
+      "oj-toolbar": {
+        "path": "ojs/ojtoolbar"
+      },
+      "oj-navigation-list": {
+        "path": "ojs/ojnavigationlist"
+      }
+    }
+  },
+  "title": ""
+}

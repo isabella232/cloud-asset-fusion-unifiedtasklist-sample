@@ -1,0 +1,24 @@
+<!--
+Copyright (c) 2014, 2020, Oracle and/or its affiliates.
+Licensed under The Universal Permissive License (UPL), Version 1.0
+as shown at https://oss.oracle.com/licenses/upl/
+-->
+<div class="oj-flex">
+  <oj-label id="oj-label--395698538-1" for="oj-select-one--395698538-1" width="2%" class="oj-flex-item oj-sm-12 oj-md-1" dir="auto">Task Source</oj-label>
+  <oj-select-one id="oj-select-one--395698538-1" options="[[$variables.varTaskSourceOptions]]" options-keys.value="value" options-keys.label="option" on-value-changed="[[$listeners.ojSelectOne3956985381Value]]" value="{{$variables.varTaskSourceOptionsSelected}}" class="oj-flex-item oj-sm-12 oj-md-2"></oj-select-one>
+  <div class="oj-flex-item oj-sm-12 oj-md-1">
+    <oj-button id="oj-button-318517770-1" on-oj-action="[[$listeners.ojButton3185177701OjAction]]">Refresh
+    </oj-button>
+  </div>
+  <div></div>
+  <div class="oj-flex-item oj-sm-12 oj-md-2">
+    <oj-bind-if test="[[ $application.user.roles.admin ]]">
+      <oj-button id="oj-button-318517770-2" on-oj-action="[[$listeners.ojButton3185177702OjAction]]">Configuration&gt;</oj-button>
+    </oj-bind-if>
+  </div>
+</div>
+<div class="oj-flex">
+  <div class="oj-flex oj-flex-item">
+    <oj-table scroll-policy="loadAll" id="oj-table-637398431-1" class="oj-flex-item" data="[[ $variables.varTaskList ]]" columns='[{"headerText":"Status","field":"Status","resizable":"enabled"},{"headerText":"Subject","field":"Subject"},{"headerText":"Date Assigned","field":"DateAssigned"},{"headerText":"Assigned By","field":"AssignedBy"},{"headerText":"Source","field":"Source"}]' selection-mode.row="single" scroll-policy-options.max-count="1500" scroll-policy-options.fetch-size="150" on-first-selected-row-changed="[[$listeners.ojTable6373984311FirstSelectedRow]]"></oj-table>
+  </div>
+</div>

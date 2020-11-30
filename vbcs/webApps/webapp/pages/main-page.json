@@ -1,0 +1,177 @@
+{
+    "pageModelVersion": "19.3.1",
+    "description": "",
+    "routerFlow": "worklist",
+    "variables": {
+        "messagesADP": {
+            "type": "vb/ArrayDataProvider",
+            "defaultValue": {
+                "idAttribute": "id",
+                "itemType": "page:messageType"
+            }
+        }
+    },
+    "metadata": {},
+    "types": {
+        "messageType": {
+            "id": "string",
+            "severity": "string",
+            "category": "string",
+            "summary": "string",
+            "detail": "string",
+            "timestamp": "string",
+            "autoTimeout": "number"
+        }
+    },
+    "chains": {
+        "showNotification": {
+            "description": "Displays notifications sent by the Fire Notification action using the oj-messages component on this page.",
+            "variables": {
+                "eventPayload": {
+                    "type": "messageType",
+                    "input": "fromCaller"
+                }
+            },
+            "root": "displayMessage",
+            "actions": {
+                "displayMessage": {
+                    "module": "vb/action/builtin/fireDataProviderEventAction",
+                    "parameters": {
+                        "target": "{{ $page.variables.messagesADP }}",
+                        "add": {
+                            "data": "{{ [ $chain.variables.eventPayload ] }}"
+                        }
+                    }
+                }
+            }
+        },
+        "closeNotificationHandler": {
+            "description": "Removes the notification message when its dismiss gesture has been invoked.",
+            "variables": {
+                "eventMessage": {
+                    "type": "messageType",
+                    "input": "fromCaller"
+                }
+            },
+            "root": "removeMessage",
+            "actions": {
+                "removeMessage": {
+                    "module": "vb/action/builtin/fireDataProviderEventAction",
+                    "parameters": {
+                        "target": "{{ $page.variables.messagesADP }}",
+                        "remove": {
+                            "keys": "{{ [ $variables.eventMessage.id ] }}"
+                        }
+                    }
+                }
+            }
+        },
+        "MenuActionChain": {
+            "description": "",
+            "variables": {
+                "menuId": {
+                    "required": true,
+                    "type": "any",
+                    "input": "fromCaller"
+                }
+            },
+            "root": "if1",
+            "actions": {
+                "logout1": {
+                    "module": "vb/action/builtin/logoutAction"
+                },
+                "if1": {
+                    "module": "vb/action/builtin/ifAction",
+                    "parameters": {
+                        "condition": "[[ $chain.variables.menuId == \"out\"  ]]"
+                    },
+                    "outcomes": {
+                        "true": "logout1"
+                    }
+                }
+            }
+        },
+        "MenuActionChain1": {
+            "description": "",
+            "variables": {
+                "menuId": {
+                    "required": true,
+                    "type": "any",
+                    "input": "fromCaller"
+                }
+            },
+            "root": "if1",
+            "actions": {
+                "if1": {
+                    "module": "vb/action/builtin/ifAction",
+                    "parameters": {
+                        "condition": "[[ $chain.variables.menuId === \"out\" ]]"
+                    },
+                    "outcomes": {
+                        "true": "logout1"
+                    }
+                },
+                "logout1": {
+                    "module": "vb/action/builtin/logoutAction"
+                }
+            }
+        }
+    },
+    "eventListeners": {
+        "vbNotification": {
+            "chains": [
+                {
+                    "chainId": "showNotification",
+                    "parameters": {
+                        "eventPayload": "{{ { id: $event.key, summary: $event.summary, detail: $event.message, severity: $event.type, autoTimeout: $event.displayMode === 'transient' ? 0 : -1, timestamp: oj.IntlConverterUtils.dateToLocalIso(new Date()) } }}"
+                    }
+                }
+            ]
+        },
+        "onMessageClose": {
+            "chains": [
+                {
+                    "chainId": "closeNotificationHandler",
+                    "parameters": {
+                        "eventMessage": "{{ $event.detail.message }}"
+                    }
+                }
+            ]
+        },
+        "menu1OjAction": {
+            "chains": [
+                {
+                    "chainId": "MenuActionChain",
+                    "parameters": {
+                        "menuId": "{{$event.target.value}}"
+                    }
+                }
+            ]
+        }
+    },
+    "imports": {
+        "components": {
+            "oj-messages": {
+                "path": "ojs/ojmessages"
+            },
+            "oj-menu": {
+                "path": "ojs/ojmenu"
+            },
+            "oj-menu-button": {
+                "path": "ojs/ojbutton"
+            },
+            "oj-option": {
+                "path": "ojs/ojoption"
+            },
+            "oj-toolbar": {
+                "path": "ojs/ojtoolbar"
+            }
+        }
+    },
+    "translations": {
+        "standaloneui": {
+            "path": "./resources/strings/standaloneui/nls/standaloneui-strings"
+        }
+    },
+    "title": "Unified business process task list"
+}

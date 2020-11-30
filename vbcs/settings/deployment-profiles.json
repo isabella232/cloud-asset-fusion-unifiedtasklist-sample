@@ -1,0 +1,9 @@
+{
+    "profiles": [
+        {
+            "id": "development",
+            "displayName": "Default",
+            "description": "Default deployment profile"
+        }
+    ]
+}

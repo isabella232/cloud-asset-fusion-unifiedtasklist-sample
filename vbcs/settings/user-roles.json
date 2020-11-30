@@ -1,0 +1,17 @@
+{"userroles":[
+        {
+            "name": "Employee",
+            "description": "",
+            "id": "Employee"
+        },
+        {
+            "name": "ProcessInitiator",
+            "description": "Employees who can initiate new processes",
+            "id": "ProcessInitiator"
+        },
+        {
+            "name": "admin",
+            "description": "administrator",
+            "id": "admin"
+        }
+      ]}
