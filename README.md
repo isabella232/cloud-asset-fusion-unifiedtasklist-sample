@@ -130,7 +130,7 @@ There are two root pages in the application. A page named *shell* that's transpa
 
 ## **Contributing**
 
-See [CONTRIBUTIUNG](CONTRIBUTING.md) for details. 
+See [CONTRIBUTING](CONTRIBUTING.md) for details. 
 
 ## **Get help**
 
