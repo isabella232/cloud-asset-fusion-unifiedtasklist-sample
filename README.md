@@ -16,11 +16,11 @@ This extension web application helps users see a consolidated view of their task
 * The VBCS Web application provided in the code requires that the various VBCS , SaaS and any PaaS application have their identities federated. *
  
 ## **High Level Architecture**
-![](https://orahub.oraclecorp.com/ateam/cloud.asset.fusion-unifiedtasklist/raw/master/highlevel.png)
+![](highlevel.png)
 
 See the diagram for interactions between participating applications, VBCS and Identity Cloud Service (IDCS).
 
-This code requires that all participating enterprise applications are configured with SAML 2 federation, so that navigation between them and the unified tasklist is seamless. It also requires oAuth trust is established between applications and IDCS so that each application's API can recognize the current user. Each participating enterprise application must be able to provide a list of tasks over REST API and accept oAuth. Finally, each enterprise application must allow a direct GET request to its task details page when reference to a task is provided.
+This code requires that all participting enterprise applications are configured with SAML 2 federation, so that navigation between them and the unified tasklist is seamless. It also requires oAuth trust is established between applications and IDCS so that each application's API can recognize the current user. Each participating enterprise application must be able to provide a list of tasks over REST API and accept oAuth. Finally, each enterprise application must allow a direct GET request to its task details page when reference to a task is provided.
 
 The main web page, upon initiation, determines the list of configured enterprise applications and accesses the REST endpoint for each application to fetch a list of tasks. These REST API requests are made with an oAuth token inserted by IDCS. This oAuth token asserts the identity of the currently logged-in user. Upon receiving the results, the web page then translates the fields into a list of fields displayed on the main page. The list of tasks is also updated upon translating results from each configured enterprise application's REST endpoint. The list of tasks stops updating when all the endpoints have been accessed, or when there is a failure with an endpoint. In case of a failure, an error message is displayed at the top of the page and subsequent processing of task list REST endpoints is stopped.
 
@@ -29,10 +29,10 @@ Each task on the list has a link to task page URL native to the enterprise appli
 See sections below for instructions on how to use this code. Refer Oracle web site for VBCS, IDCS and fusion application documentation for more information about security configuration and REST API.
 
 ## ***Reference documentation for VBCS, IDCS and Fusion***
-* https://docs.oracle.com/en/solutions/create-approval-process-digital-assets/enable-oracle-fusion-applications-cloud-service-federation-and-oauth-trust-oracle-identity-cloud-ser1.html
-* https://blogs.oracle.com/vbcs/data-security-and-role-based-ui-in-vbcs-applications
-* https://docs.oracle.com/en/cloud/saas/applications-common/19d/farca/index.html
-* https://docs.oracle.com/en/cloud/paas/app-builder-cloud/visual-builder-developer/import-and-export-applications.html#GUID-845B8CD3-E196-4865-8F19-24F29B472B5D
+* [Enable Oracle Fusion Applications Cloud Service Federation and OAuth Trust with Oracle Identity Cloud Service](https://docs.oracle.com/en/solutions/create-approval-process-digital-assets/enable-oracle-fusion-applications-cloud-service-federation-and-oauth-trust-oracle-identity-cloud-ser1.html)
+* [Data Security and Role-Based UI in Visual Builder Applications](https://blogs.oracle.com/vbcs/data-security-and-role-based-ui-in-vbcs-applications)
+* [Oracle Applications common features](https://docs.oracle.com/en/cloud/saas/applications-common/20d/oaext/index.html)
+* [Import a Visual Application](https://docs.oracle.com/en/cloud/paas/app-builder-cloud/visual-builder-developer/import-and-export-applications.html#GUID-845B8CD3-E196-4865-8F19-24F29B472B5D)
 
 ## **High level steps to use the code**
 * Clone the repository to your local hard drive
@@ -119,8 +119,8 @@ In fusion application, page composer can be used to embed the page.  Here are th
 * Once the page is embedded in SaaS, application will retrieve tasks from the configured task source applications, for currently longged-in SaaS user. 
 
 ## ***Reference documentation for embedding application into SaaS***
-* https://blogs.oracle.com/saaspaas/integrating-partner-apps-page-integration
-* https://docs.oracle.com/en/cloud/paas/content-cloud/developer/embed-vbcs-page-site-page.html
+* [How to create New Pages Using The Page Integration Wizard?](https://support.oracle.com/knowledge/Oracle%20Cloud/2117816_1.html)
+* [Embedding Visual Builder Apps In Oracle Cloud Applications](https://blogs.oracle.com/shay/embedding-visual-builder-apps-in-other-apps)
 
 ## **Change the application for embedded or standalone use**
 
@@ -134,7 +134,7 @@ See [CONTRIBUTIUNG](CONTRIBUTING.md) for details.
 
 ## **Get help**
 
-Visit Oracle Cloud Customer Connect Community at https://cloudcustomerconnect.oracle.com for additional resources and FAQs. 
+Visit Oracle Cloud Customer Connect Community at [Oracle Cloud Customer Connect](https://cloudcustomerconnect.oracle.com) for additional resources and FAQs. 
 
 ## **License**
 Copyright (c) 2014, 2020, Oracle and/or its affiliates. All rights reserved.
